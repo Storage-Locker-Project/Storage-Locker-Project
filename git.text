@@ -1,0 +1,30 @@
+깃 파일 생성
+1. 프로젝트 파일에 해당하는 디렉토리로 이동 (cd)
+2. cmd 창에 git init : 레포지토리 확인
+3. git status : 현재 업로드 파일 상태 확인
+
+깃과 깃허브 연동
+1. 처음 로그인:
+    git config --global user.name "깃허브 이름"
+    git congig --global user.email "이메일"
+
+2. 레포지토리 연결
+    git remote add origin "깃허브 <> code url" 
+
+3. 깃 브랜치 생성
+    1. git branch : 현재 브랜치 확인
+    2. git branch [새로운 브랜치명] : 브랜치 생성
+    3. git checkout [브랜치명] : 기존 브랜치 중 브랜치명으로 이동
+
+4. 파일 업로드
+    1. git status : 업로드할 파일 확인
+    2. git add . : 모든 파일 업로드
+    3. git add [파일명] : 파일 하나만 올림
+    4. git commit -m "업로드와 함께 전달할 메세지" : 업로드된 파일 설명 메시지 입력
+    5. git push origin [브랜치명] : 해당 브랜치로 지금까지 업로드한 파일 레포지토리에 전달
+
+5. 파일 다운로드
+    1. git init
+    2. git remote add origin
+    3. git pull origin [브랜치명]
+    4. git clone : 완전 복사
