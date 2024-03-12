@@ -1,0 +1,65 @@
+@import "reset.css";
+
+
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+.header {
+  width: 100%;
+  height: 10%;
+  text-align: center;
+  padding-top: 200px;
+}
+
+.img {
+  width: 80%;
+  height: 100%;
+  object-fit:contain;
+}
+
+/* 로그인 창 스타일 */
+.login-form {
+  width: 80%;
+  padding: 40px;
+}
+
+
+.login-form .form-group {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+
+
+.login-form .form-group input[type="email"],
+.login-form .form-group input[type="password"] {
+  width: 100%;
+  height: 30px;
+  padding: 10px;
+  
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.login-form input[type="submit"] {
+  width: 100%;
+  height: 50px;
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-form p {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.login-form a {
+  color: #c0c0c0;
+}
