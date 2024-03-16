@@ -64,5 +64,21 @@ def login():
     else:
         return jsonify({'message':'아이디 또는 비밀번호를 다시 입력해주세요.'})
 
+# 홈화면 API - 잔여 대여 시간, 시간 연장, 사물함 정보
+@app.route('/home', methods=['GET','POST'])
+def home():
+    connection = pymysql.connect(host='', uset='', password='', database='')
+    conn = connection.cursor(pymysql.cursors.DictCursor)
+    query=f'select storage from userinfo where userid="{"미정"}"'
+    conn.execute(query)
+    result=conn.fetchall()
+
+    # 홈화면에 표시해줄 내용 정해지는대로 추가하기**
+
+# 내정보 API - 대여 사물함 정보, 대여 이력 + 오류 사진 정보
+@app.route('/myapge', methods=['GET','POST'])
+def mypage():
+    return 1
+
 if __name__ == '__main__':
     app.run(debug=True, host='localhost', port=8888)
