@@ -1,16 +1,37 @@
 from flask import Flask, request, jsonify, render_template
 import pymysql
 from validation import *
+import requests
+
 app = Flask(__name__)
 
-@app.route('/')
-def main():
-    return "Hello New Project!"
+# 아두이노 함수 정의
+
+def send_change(pw_input):
+    url = "http://localhost:5050/templates/signup.html"
+    payload = {'password': pw_input}
+    headers = {'Content-Type': 'application/x-www-form-urlencoded'}
+    response = requests.post(url, data=payload, headers=headers)
+    if response.status_code == 200:
+        print("Password changed successfully")
+    else:
+        print("Failed to send password to server")
+
+def send_wrong(pw_input):
+    url = "http://localhost/templates/signup.html"
+    payload = {'wrong_password': pw_input}
+    headers = {'Content-Type': 'application/x-www-form-urlencoded'}
+    response = requests.post(url, data=payload, headers=headers)
+    if response.status_code == 200:
+        print("Wrong password sent successfully")
+    else:
+        print("Failed to send wrong password to server")
 
 # 회원가입 API
 @app.route('/sineup', methods=['POST'])
 def sineup():
     data = request.get_json()
+    print(data)
     user_name = data['USER_NAME']
     user_id = data['EMAIL']
     user_pw = data['PASSWORD']
@@ -20,8 +41,7 @@ def sineup():
         connection = pymysql.connect(host='', port='', db='', user='', password='', charset='')
         cursor = connection.cursor(pymysql.cursors.DictCursor)
 
-        # sql -> 쿼리문 작성
-        # sql_act -> 실행
+        # 회원가입 관련 쿼리 실행
 
         connection.commit()
         connection.close()
@@ -57,8 +77,8 @@ def login():
     if len(db_data) > 0:
         
         # DB 저장 정보와 입력 값을 비교하는 부분 추가하기**
-        user_name = db_data['USER_NAME']
-        user_pw = db_data['PASSWORD']
+        user_name = db_data[0]['USER_NAME']
+        user_pw = db_data[0]['PASSWORD']
 
         return jsonify({'message':f"{user_name}님 반갑습니다."})
     else:
@@ -78,7 +98,8 @@ def home():
 # 내정보 API - 대여 사물함 정보, 대여 이력 + 오류 사진 정보
 @app.route('/myapge', methods=['GET','POST'])
 def mypage():
-    return 1
+    send_change("New password")
+    return jsonify({'message':'마이페이지 정보 전송'})
 
 if __name__ == '__main__':
-    app.run(debug=True, host='localhost', port=8888)
+    app.run(debug=True, host='192.168.0.9', port=5050)
