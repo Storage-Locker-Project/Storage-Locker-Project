@@ -45,9 +45,8 @@ body {
 
 
 .itembox1 {
-
 	width: 100%;
-	height: 300px;
+	height: 250px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -56,11 +55,17 @@ body {
 .initembox1 {
 	background-color: rgb(0, 0, 0);
 	width: 100%;
-	height: 250px;
+	height: 200px;
 	border-radius: 20px;
 	box-shadow: 1px 1px gray;
 	margin-left: 10px;
 	margin-right: 10px;
+}
+
+#US {
+	text-align: center;
+	color: white;
+	margin-top: 90px;
 }
 
 .ItemName {
@@ -70,33 +75,55 @@ body {
 
 .itembox2 {
 	width: 100%;
-	height: 430px;
+	height: 500px;
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
 }
 
 .initembox2 {
-	background-color: #00CCBF;
+	background-color: #A1C7E0;
 	width: 100%;
-	height: 380px;
+	height: 450px;
 	border-radius: 20px;
 	box-shadow: 1px 1px gray;
 	margin-left: 10px;
 	margin-right: 10px;
 }
 
-.itembox2 .box1 {
-	background-color: red;
+.box-impos {
+	background-color: #3D5A73;
+	border-color: #2F3D40;
 	width: 25%;
 	height: 120px;
 	border-radius: 20px;
-	box-shadow: 1px 1px gray;
 	margin-top: 10px;
 	margin-left: 10px;
 	margin-right: 10px;
+	padding: 20px;
+	margin-left: 15px;
+	margin-top: 20px;
 }
 
-#number {
-	padding: 10 10 0 0;
+.box-pos {
+	background-color: #0099DD;
+	border-color: #0099DD;
+	width: 25%;
+	height: 120px;
+	border-radius: 20px;
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+	padding: 20px;
+	margin-left: 15px;
+	margin-top: 20px;
 }
+
+ #number {
+	color: white;
+	text-align: left;
+	position: relative;
+	bottom: 40px;
+	font-size: 30px;
+	right: 10px;
+ }
