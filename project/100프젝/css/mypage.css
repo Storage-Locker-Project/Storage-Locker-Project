@@ -1,44 +1,43 @@
 @import "reset.css";
- 
 
 body {
-	background-color: #F2F0EB;
-	width: 100vw;
-	height: 100vh;
+  background-color: #f2f0eb;
+  width: 100vw;
+  height: 100vh;
 }
 
 .main {
-	width: 100%;
-	height: 10%;
-	display: flex;
-	flex-direction: row;
-	padding-top: 20px;
+  width: 100%;
+  height: 10%;
+  display: flex;
+  flex-direction: row;
+  padding-top: 20px;
 }
 
 .mainleft {
-	width: 70vw;
-	height: 100%;
-	text-align: center;
+  width: 70vw;
+  height: 100%;
+  text-align: center;
 }
 
 .mainright {
-	width: 30vw;
-	height: 100%;
-	display: flex;
-	flex-direction: row-reverse;
-	align-items: center;
+  width: 30vw;
+  height: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
 }
 
 .imgmain {
-	width: 90%;
-	height: 100%;
-	object-fit:contain;
+  width: 90%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .mainiconimg {
-	width: 50px;
-	height: 50px;
-	margin-right: 20px;
+  width: 50px;
+  height: 50px;
+  margin-right: 20px;
 }
 
 h3 {
@@ -47,26 +46,26 @@ h3 {
 }
 
 .itembox1 {
-	width: 100%;
-	height: 200px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .initembox1 {
-	background-color: #76ABAE;
-	width: 100%;
-	height: 150px;
-	border-radius: 20px;
-	box-shadow: 1px 1px gray;
-	margin-left: 10px;
-	margin-right: 10px;
+  background-color: #76abae;
+  width: 100%;
+  height: 150px;
+  border-radius: 20px;
+  box-shadow: 1px 1px gray;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .ItemName {
-	margin-left: 10px;
-	font-size: 25px;
+  margin-left: 10px;
+  font-size: 25px;
 }
 
 .itembox1 .initembox1 .pro {
@@ -80,4 +79,30 @@ h3 {
 #changeNameButton,
 #changePasswordButton {
   margin: 25px auto;
+}
+
+.outitembox2 {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.itembox2 {
+  background-color: #76abae;
+  width: 100%;
+  height: 250px;
+  border-radius: 20px;
+  box-shadow: 1px 1px gray;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.initembox2 {
+}
+
+img {
+  width: 50px;
+  height: 100px;
 }
