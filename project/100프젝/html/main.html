@@ -1,72 +1,158 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link
-			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-			rel="stylesheet"
-			integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
-			crossorigin="anonymous"
-		/> 
-		<link rel="stylesheet" href="/project/100프젝/css/main.css" />
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-		/>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/project/100프젝/css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
+    <title>100일 프젝</title>
+  </head>
+
+  <body>
+    <!-- Modal -->
+
+    <div class="main">
+      <div class="mainleft">
+        <a href="/project/100프젝/html/main.html"
+          ><img class="imgmain" src="/project/100프젝/img/project.png"
+        /></a>
+      </div>
+
+      <div class="mainright">
+        <a href="/project/100프젝/html/mypage.html"
+          ><img class="mainiconimg" src="/project/100프젝/img/mypageicon.png"
+        /></a>
+      </div>
+    </div>
+	
 
 	
 
-        <title>100일 프젝</title>
-	</head>
+    <div class="itemBox">
+      <div class="initembox1">
+        <p id="US">현재 사용하시는 사물함이 없습니다.</p>
+      </div>
+    </div>
 
-	<body>
+    <h1 class="ItemName">사물함 사용 현황</h1>
 
-		<div class="main">
-			<div class="mainleft">
-				<a href="/project/100프젝/html/main.html"><img class="imgmain" src="/project/100프젝/img/project.png"></a>
+    <div class="itembox2">
+      <div class="lockers">
+        <!-- Locker buttons go here -->
+        <button
+          class="locker"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          data-number="1"
+          id="locker1"
+        >
+          Locker 1
+        </button>
+        <button
+          class="locker"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          data-number="2"
+          id="locker2"
+        >
+          Locker 2
+        </button>
+        <button
+          class="unlocker"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          data-number="3"
+          id="locker3"
+        >
+          Locker 3
+        </button>
+        <button
+          class="unlocker"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          data-number="4"
+          id="locker4"
+        >
+          Locker 4
+        </button>
+        <button
+          class="unlocker"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          data-number="5"
+          id="locker5"
+        >
+          Locker 5
+        </button>
+        <button
+          class="unlocker"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          data-number="6"
+          id="locker6"
+        >
+          Locker 6
+        </button>
+        <button
+          class="unlocker"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          data-number="7"
+          id="locker7"
+        >
+          Locker 7
+        </button>
+        <button
+          class="unlocker"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          data-number="8"
+          id="locker8"
+        >
+          Locker 8
+        </button>
+        <button
+          class="unlocker"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          data-number="9"
+          id="locker9"
+        >
+          Locker 9
+        </button>
+        <!-- Add more locker buttons as per the previous examples -->
+      </div>
+    </div>
 
-			</div>
+    <!-- Time selection modal -->
+    <div id="timeModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Select Time</h2>
+        <input type="text" placeholder="이름" />
+        <input type="text" placeholder="이메일" />
 
-			<div class="mainright">
-				<a href="/project/100프젝/html/mypage.html"><img class="mainiconimg" src="/project/100프젝/img/mypageicon.png"></a>
-				
-			</div>
+        <input type="number" id="hours" min="1" placeholder="Hours (e.g., 3)" />
+        <button id="confirmTime">Confirm</button>
+      </div>
+    </div>
 
-		</div>
-
-		<div class="itembox1">
-			<div class="initembox1">
-				<p id="US">현재 사용하시는 사물함이 없습니다.</p>
-			</div>
-		</div>
-
-		<h1 class="ItemName">사물함 사용 현황</h1>
-
-
-		<div class="itembox2">
-			<div class="initembox2">
-			  
-				<button type="button" class="box-pos"><p id="number">1</p></button>
-				<button type="button" class="box-pos"><p id="number">2</p></button>
-				<button type="button" class="box-impos"><p id="number">3</p></button>
-				<button type="button" class="box-impos"><p id="number">4</p></button>
-				<button type="button" class="box-impos"><p id="number">5</p></button>
-				<button type="button" class="box-impos"><p id="number">6</p></button>
-				<button type="button" class="box-impos"><p id="number">7</p></button>
-				<button type="button" class="box-impos"><p id="number">8</p></button>
-				<button type="button" class="box-impos"><p id="number">9</p></button>
-
-			</div>
-		  </div>
-		  
-gd
-
-
-		<script
+    <!-- <script
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
 			integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
 			crossorigin="anonymous"
-		></script>
-	</body>
+		></script> -->
+
+    <script src="/project/100프젝/js/main.js"></script>
+  </body>
 </html>
