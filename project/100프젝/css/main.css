@@ -61,6 +61,27 @@ body {
   margin-left: 10px;
   margin-right: 10px;
   position: relative; /* 상대 위치 설정 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#expand {
+  position: absolute; /* 절대 위치 설정 */
+  bottom: 0; /* 부모 요소의 하단으로부터 0px 지점에 위치 */
+  color: white; /* 텍스트 색상 */
+  background-color: rgb(150, 150, 177); /* 남색 배경 */
+  padding: 10px 40px; /* 상하 10px, 좌우 20px 내부 여백 */
+  border-radius: 20px; /* 모서리 둥글기 */
+  display: none; /* 기본적으로 숨김 처리, 필요에 따라 display: block 또는 flex로 변경 */
+  margin-bottom: 10px;
+  font-size: 20px;
+  border: none;
+  transition: background-color 0.3s; /* 배경색 변화에 애니메이션 적용 */
+}
+
+#expand.clicked {
+  background-color: rgb(130, 130, 157); /* 클릭 시 어두운 색상 */
 }
 
 #timeBox {
@@ -72,10 +93,9 @@ body {
   background-color: rgb(0, 0, 0); /* 시간 텍스트 배경색 */
   padding: 10px; /* 내부 여백 */
   font-size: 18px; /* 폰트 크기 */
-  width: 180px;
+  width: 100%;
   height: 120px;
 }
-
 
 #US {
   text-align: center;
@@ -191,4 +211,3 @@ body {
   cursor: pointer;
   display: inline-block;
 }
-
