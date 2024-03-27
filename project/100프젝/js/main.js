@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function openModal(lockerId) {
   const modal = document.getElementById("timeModal");
-  const span = document.getElementsByClassName("close")[0];
+  const span= document.getElementsByClassName("close")[0];
   const confirmBtn = document.getElementById("confirmTime");
 
   modal.style.display = "block";
@@ -53,10 +53,8 @@ function updateCountdown(lockerId, endTime) {
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    locker.textContent = `Locker ${lockerId.replace(
-      "locker",
-      ""
-    )} - ${hours}h ${minutes}m ${seconds}s`;
+    US.textContent = `보관함 ${lockerId.replace(
+    )}   ${hours}시간 ${minutes}분 ${seconds}초 남았습니다`;
 
     if (distance < 0) {
       clearInterval(interval);
