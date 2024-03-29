@@ -19,16 +19,16 @@ function openModal(lockerId, mode) {
   const confirmBtn = document.getElementById("confirmTime");
 
   const nameInput = modal.querySelector("input[placeholder='이름']");
-  const emailInput = modal.querySelector("input[placeholder='이메일']");
+  const passwordInput = modal.querySelector("input[placeholder='비밀번호']");
 
   if (mode === "extend") {
     let expandname = document.getElementById("expandName");
-    expandname.textContent = "연장할 시간을 입렵해주세요";
+    expandname.textContent = "연장할 시간을 입력해주세요";
     nameInput.style.display = "none";
-    emailInput.style.display = "none";
+    passwordInput.style.display = "none";
   } else {
     nameInput.style.display = "block";
-    emailInput.style.display = "block";
+    passwordInput.style.display = "block";
   }
 
   modal.style.display = "block";
