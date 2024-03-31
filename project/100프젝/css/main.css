@@ -181,6 +181,7 @@ body {
 }
 
 .modal-content {
+  position: relative;
   background-color: #fefefe;
   margin: 15% auto;
   padding: 20px;
@@ -189,11 +190,32 @@ body {
   border-radius: 5px;
 }
 
+#expandName {
+  margin-top: 20px;
+}
+
+.modal-content h2,
+.modal-content input,
+.modal-content button {
+  margin-bottom: 10px; /* 입력 요소들과 버튼 사이의 간격 조절 */
+}
+.modal-content h2,
+.modal-content input[type="text"],
+.modal-content input[type="password"],
+.modal-content input[type="number"],
+.modal-content button {
+  width: 100%; /* 입력 요소들과 버튼의 너비를 모달 내부에 맞게 설정 */
+}
+
 .close {
   color: #aaaaaa;
   float: right;
   font-size: 28px;
   font-weight: bold;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
 }
 
 .close:hover,
