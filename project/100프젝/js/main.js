@@ -13,6 +13,8 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// 연장하는 부분
+
 function openModal(lockerId, mode) {
   const modal = document.getElementById("timeModal");
   const span = document.getElementsByClassName("close")[0];
