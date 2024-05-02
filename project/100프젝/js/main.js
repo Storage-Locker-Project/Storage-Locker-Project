@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const lockers = document.querySelectorAll(".locker");
   lockers.forEach((locker) => {
     locker.addEventListener("click", function () {
-      if (!this.classList.contains("disabled")) {
+      if (!this.classList.contains("disabled") && currentLockerId === null) {
         currentLockerId = this.id;
         openModal(this.id);
       }
@@ -13,7 +13,22 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// 연장하는 부분
+document.addEventListener("DOMContentLoaded", function () {
+  var expandButton = document.getElementById("expand");
+  expandButton.addEventListener("click", function () {
+    // 'clicked' 클래스 추가
+    this.classList.add("clicked");
+
+    // 300ms 후에 'clicked' 클래스 제거
+    setTimeout(() => {
+      this.classList.remove("clicked");
+    }, 300); // CSS transition 시간과 동일하게 설정
+
+    if (currentLockerId) {
+      openModal(currentLockerId, "extend"); // 현재 선택된 보관함에 대한 모달 열기
+    }
+  });
+});
 
 function openModal(lockerId, mode) {
   const modal = document.getElementById("timeModal");
@@ -102,20 +117,3 @@ function updateCountdown(lockerId, endTime) {
     }
   }, 1000);
 }
-
-document.addEventListener("DOMContentLoaded", function () {
-  var expandButton = document.getElementById("expand");
-  expandButton.addEventListener("click", function () {
-    // 'clicked' 클래스 추가
-    this.classList.add("clicked");
-
-    // 300ms 후에 'clicked' 클래스 제거
-    setTimeout(() => {
-      this.classList.remove("clicked");
-    }, 300); // CSS transition 시간과 동일하게 설정
-
-    if (currentLockerId) {
-      openModal(currentLockerId, "extend"); // 현재 선택된 보관함에 대한 모달 열기
-    }
-  });
-});
