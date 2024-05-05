@@ -233,3 +233,12 @@ body {
   cursor: pointer;
   display: inline-block;
 }
+
+#closeButton {
+  background-color: red;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+}
