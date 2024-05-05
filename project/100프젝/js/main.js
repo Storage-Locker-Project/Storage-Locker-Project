@@ -28,76 +28,66 @@ document.querySelectorAll('.locker').forEach(function(locker) {
 });
 
 
-document.addEventListener("DOMContentLoaded", function () {
-    var expandButton = document.getElementById("expand");
-    expandButton.addEventListener("click", function () {
-        // 'clicked' 클래스 추가
-        this.classList.add("clicked");
-
-        // 300ms 후에 'clicked' 클래스 제거
-        setTimeout(() => {
-            this.classList.remove("clicked");
-        }, 300); // CSS transition 시간과 동일하게 설정
-
-        if (currentLockerId) {
-            openModal(currentLockerId, "extend"); // 현재 선택된 보관함에 대한 모달 열기
-        }
-    });
-});
-// 나머지 코드는 동일하게 유지합니다.
-
-
 function openModal(lockerId, mode) {
   const modal = document.getElementById("timeModal");
   const span = document.getElementsByClassName("close")[0];
   const confirmBtn = document.getElementById("confirmTime");
+  const timeInput = document.getElementById("hours");
 
   const nameInput = modal.querySelector("input[placeholder='이름']");
   const passwordInput = modal.querySelector("input[placeholder='비밀번호']");
 
-  if (mode === "extend") {
-    let expandname = document.getElementById("expandName");
-    expandname.textContent = "연장할 시간을 입력해주세요";
+  if (mode === "expand") {
+    let expandName = document.getElementById("expandName");
+    expandName.textContent = "연장할 시간을 입력해주세요";
     nameInput.style.display = "none";
     passwordInput.style.display = "none";
+    timeInput.style.display = "block";
   } else {
     nameInput.style.display = "block";
     passwordInput.style.display = "block";
+    timeInput.style.display = "block";
   }
 
   modal.style.display = "block";
 
   span.onclick = function () {
     modal.style.display = "none";
-    currentLockerId = null; // 모달이 닫힐 때 currentLockerId 초기화
   };
 
   confirmBtn.onclick = function () {
-    const hours = parseFloat(document.getElementById("hours").value);
-    if (!isNaN(hours) && hours > 0) { // 유효한 시간 값인지 확인
+    const hours = parseFloat(timeInput.value);
+    if (!isNaN(hours) && hours > 0) {
+      // currentLockerId 업데이트
+      currentLockerId = lockerId;
       reserveLocker(lockerId, hours);
       modal.style.display = "none";
-      currentLockerId = null; // 모달이 닫힐 때 currentLockerId 초기화
     } else {
       alert("올바른 시간을 입력하세요.");
     }
-};
-
+  };
 
   window.onclick = function (event) {
     if (event.target == modal) {
       modal.style.display = "none";
-      currentLockerId = null; // 모달이 닫힐 때 currentLockerId 초기화
     }
   };
 }
 
 function reserveLocker(lockerId, hours) {
+  console.log(lockerId);
   const locker = document.getElementById(lockerId);
-  
+
+  // locker가 null이면 함수 종료
+  if (!locker) {
+    console.error(`No element found with ID ${lockerId}`);
+    return;
+  }
+
+  // locker가 존재하는 경우에만 dataset.endTime 사용
   let endTime = new Date().getTime();
   if (locker.dataset.endTime) {
-    endTime = Math.max(endTime, parseInt(locker.dataset.endTime));
+    endTime = Math.max(endTime, parseFloat(locker.dataset.endTime));
   }
 
   endTime += hours * 3600 * 1000;
@@ -108,6 +98,7 @@ function reserveLocker(lockerId, hours) {
 
   updateCountdown(lockerId, endTime);
 }
+
 
 function showNoCurrentLockersMessage() {
   const US = document.getElementById("US");
