@@ -6,27 +6,6 @@ let selectedLockerId = null; // 현재 선택된 사물함의 ID를 저장합니
 // 사물함 선택 상태를 추적하는 변수
 let isSelected = false; // 보관함이 선택되었는지 아닌지를 나타내는 변수
 
-document.querySelectorAll('.locker').forEach(function(locker) {
-  locker.addEventListener('click', function() {
-      if (isSelected && selectedLockerId !== this.id) {
-          // 이미 다른 보관함이 선택되었으면 아무것도 하지 않음
-          alert("이미 선택된 보관함이 있습니다. 다른 보관함은 선택할 수 없습니다.");
-      } else if (!this.classList.contains('disabled')) {
-          // 다른 사람이 이미 선택한 보관함을 선택하지 못하게 함
-          if (currentLockerId !== null && currentLockerId !== this.id) {
-              alert("이미 다른 사람이 사용 중인 보관함입니다.");
-          } else {
-              // 보관함 선택
-              this.classList.add('selected');
-              isSelected = true; // 보관함이 선택되었음을 표시
-              selectedLockerId = this.id; // 현재 선택된 사물함 ID 업데이트
-              currentLockerId = this.id; // 현재 선택된 보관함 ID 업데이트
-              openModal(this.id, "reserve"); // 시간 입력을 위한 모달 열기
-          }
-      }
-  });
-});
-
 
 function openModal(lockerId, mode) {
   const modal = document.getElementById("timeModal");
@@ -53,7 +32,9 @@ function openModal(lockerId, mode) {
 
   span.onclick = function () {
     modal.style.display = "none";
-  };
+    isSelected = false; // 락커 선택 상태 초기화
+    selectedLockerId = null; // 선택된 락커 ID 초기화
+};
 
   confirmBtn.onclick = function () {
     const hours = parseFloat(timeInput.value);
@@ -69,10 +50,51 @@ function openModal(lockerId, mode) {
 
   window.onclick = function (event) {
     if (event.target == modal) {
-      modal.style.display = "none";
+        modal.style.display = "none";
+        isSelected = false; // 락커 선택 상태 초기화
+        selectedLockerId = null; // 선택된 락커 ID 초기화
     }
-  };
+};
 }
+function closeModal() {
+  // 모달을 닫는 코드 작성
+  // 예를 들어:
+  document.getElementById('timeModal').style.display = 'none';
+
+  // 초기화 코드 실행
+  isSelected = false; // 선택 해제
+  selectedLockerId = null; // 선택된 사물함 ID 초기화
+  currentLockerId = null; // 현재 선택된 보관함 ID 초기화
+}
+function detectModalClose() {
+  // 여기에 모달이 닫힐 때 실행할 코드 작성
+  // 예를 들어:
+  closeModal(); // 모달이 닫힐 때 초기화 함수 호출
+}
+document.getElementById('closeButton').addEventListener('click', detectModalClose);
+document.querySelectorAll('.locker').forEach(function(locker) {
+  locker.addEventListener('click', function() {
+    if (isSelected && selectedLockerId !== this.id) {
+      // 이미 다른 보관함이 선택되었으면 아무것도 하지 않음
+      alert("이미 선택된 보관함이 있습니다. 다른 보관함은 선택할 수 없습니다.");
+    } else if (!this.classList.contains('disabled')) {
+      // 다른 사람이 이미 선택한 보관함을 선택하지 못하게 함
+      if (currentLockerId !== null && currentLockerId !== this.id) {
+        alert("이미 다른 사람이 사용 중인 보관함입니다.");
+      } else {
+        // 보관함 선택
+        this.classList.toggle('selected'); // 선택 토글
+        this.classList.contains('selected')
+          isSelected = true; // 보관함이 선택되었음을 표시
+          selectedLockerId = this.id; // 현재 선택된 사물함 ID 업데이트
+          currentLockerId = this.id; // 현재 선택된 보관함 ID 업데이트
+          openModal(this.id, "reserve"); // 시간 입력을 위한 모달 열기
+        
+      }
+    }
+  });
+});
+
 
 function reserveLocker(lockerId, hours) {
   console.log(lockerId);

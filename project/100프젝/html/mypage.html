@@ -61,5 +61,16 @@
     <div class="div-logout">
       <button type="button" class="logout">로그아웃</button>
     </div>
+
+    <script>
+      // 로그아웃 버튼 요소를 가져옵니다.
+      const logoutButton = document.querySelector('.logout');
+    
+      // 로그아웃 버튼에 클릭 이벤트를 추가합니다.
+      logoutButton.addEventListener('click', function() {
+        // 로그인 화면으로 이동합니다.
+        window.location.href = 'index.html';
+      });
+    </script>
   </body>
 </html>
