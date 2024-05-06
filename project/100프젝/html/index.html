@@ -24,9 +24,20 @@
             required
           />
         </div>
-        <input type="submit" value="로그인" />
+        <button type="button" class="login">로그인</button>
         <p><a href="/project/100프젝/html/signup.html">회원가입</a></p>
       </form>
     </div>
+
+    <script>
+      // 로그아웃 버튼 요소를 가져옵니다.
+      const loginButton = document.querySelector(".login");
+
+      // 로그아웃 버튼에 클릭 이벤트를 추가합니다.
+      loginButton.addEventListener("click", function () {
+        // 로그인 화면으로 이동합니다.
+        window.location.href = "main.html";
+      });
+    </script>
   </body>
 </html>
