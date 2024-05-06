@@ -29,10 +29,10 @@
           <p id="userName">이름: 홍길동</p>
           <p id="userId">아이디: photo0000@gmail.com</p>
           <div style="text-align: center">
-            <button class="btn btn btn-dark" id="changeNameButton">
+            <button class="custom-btn btn-15" id="changeNameButton">
               이름 변경
             </button>
-            <button class="btn btn-success" id="changePasswordButton">
+            <button class="custom-btn btn-16" id="changePasswordButton">
               비밀번호 변경
             </button>
           </div>
@@ -45,10 +45,7 @@
     <div class="outitembox2">
       <div class="itembox2">
         <div class="initembox2">
-          <img
-            src="/project/100프젝/img/도둑.png"
-            alt="img"
-          />
+          <img src="/project/100프젝/img/도둑.png" alt="img" />
         </div>
         <p class="text">
           2024.05.12 <br />
@@ -62,14 +59,42 @@
       <button type="button" class="logout">로그아웃</button>
     </div>
 
+    <div id="nameModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <input
+          type="text"
+          id="newName"
+          placeholder="새로운 이름을 입력하세요"
+        />
+        <button id="confirmName">확인</button>
+      </div>
+    </div>
+
+    <div id="passwordModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <input type="password" id="oldPassword" placeholder="이전 비밀번호" />
+        <input type="password" id="newPassword" placeholder="새 비밀번호" />
+        <input
+          type="password"
+          id="confirmPassword"
+          placeholder="비밀번호 확인"
+        />
+        <button id="confirmPasswordChange">확인</button>
+      </div>
+    </div>
+
+    <script src="/project/100프젝/js/mypage.js"></script>
+
     <script>
       // 로그아웃 버튼 요소를 가져옵니다.
-      const logoutButton = document.querySelector('.logout');
-    
+      const logoutButton = document.querySelector(".logout");
+
       // 로그아웃 버튼에 클릭 이벤트를 추가합니다.
-      logoutButton.addEventListener('click', function() {
+      logoutButton.addEventListener("click", function () {
         // 로그인 화면으로 이동합니다.
-        window.location.href = 'index.html';
+        window.location.href = "index.html";
       });
     </script>
   </body>
