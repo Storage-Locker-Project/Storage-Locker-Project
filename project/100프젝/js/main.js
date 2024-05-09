@@ -83,6 +83,7 @@ document
   .addEventListener("click", detectModalClose);
 
 // 각 보관함에 클릭 이벤트 리스너를 추가합니다.
+
 document.querySelectorAll(".locker").forEach(function (locker) {
   locker.addEventListener("click", function () {
     if (isSelected && selectedLockerId !== this.id) {
@@ -95,10 +96,9 @@ document.querySelectorAll(".locker").forEach(function (locker) {
       } else {
         // 보관함 선택
         this.classList.toggle("selected"); // 선택 토글
-        this.classList.contains("selected");
-        isSelected = true; // 보관함이 선택되었음을 표시
-        selectedLockerId = this.id; // 현재 선택된 사물함 ID 업데이트
-        currentLockerId = this.id; // 현재 선택된 보관함 ID 업데이트
+        isSelected = this.classList.contains("selected"); // 선택 여부 업데이트
+        selectedLockerId = isSelected ? this.id : null; // 선택된 보관함 ID 업데이트
+        currentLockerId = isSelected ? this.id : null; // 현재 선택된 보관함 ID 업데이트
         openModal(this.id, "reserve"); // 시간 입력을 위한 모달 열기
       }
     }
@@ -183,23 +183,6 @@ function updateCountdown(lockerId, endTime) {
       // 보관함 선택 상태를 초기화합니다.
       isSelected = false;
       selectedLockerId = null;
-
-      // 모든 보관함이 사용 중인지 확인합니다.
-      const allLockers = document.querySelectorAll(".locker");
-      let allLockersDisabled = true;
-      allLockers.forEach((locker) => {
-        if (!locker.classList.contains("disabled")) {
-          allLockersDisabled = false;
-        }
-      });
-
-      // 모든 보관함이 사용 중이면 메시지를 표시합니다.
-      if (allLockersDisabled) {
-        showNoCurrentLockersMessage();
-      } else {
-        // 아니면 다른 보관함 선택을 유도하는 메시지를 표시합니다.
-        US.innerHTML = "다른 사물함을 선택하세요.";
-      }
 
       // 보관함 선택 상태를 초기화합니다.
       showNoCurrentLockersMessage();
