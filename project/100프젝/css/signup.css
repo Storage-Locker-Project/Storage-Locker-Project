@@ -22,26 +22,22 @@ body {
 .reg-form {
   width: 80%;
   padding: 40px;
-}
-
-.reg-form .form-group {
   margin-bottom: 20px;
   display: flex;
+  justify-content: center;
   align-items: center;
 }
 
-.reg-form .form-group input[type="text"],
-.reg-form .form-group input[type="email"],
-.reg-form .form-group input[type="password"] {
-  width: 100%;
+#name, #emailInput, #passwordInput, #passwordConfirmInput {
+  width: 250px;
   height: 30px;
   padding: 10px;
-  
+  margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
 
-.reg-form button[type="button"] {
+#signupButton {
   width: 100%;
   height: 50px;
   background-color: #000;
