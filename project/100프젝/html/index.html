@@ -12,20 +12,11 @@
     </div>
 
     <div class="login-form">
-      <form action="/login" method="port" id="loginForm">
-        <div class="form-group">
-          <input type="email" id="emailInput" placeholder="이메일" required />
-        </div>
-        <div class="form-group">
-          <input
-            type="password"
-            id="passwordInput"
-            placeholder="비밀번호"
-            required
-          />
-        </div>
-        <button type="button" class="login">로그인</button>
-        <p><a href="https://localhost:8080/signup">회원가입</a></p>
+      <form action="/login" method="post" id="loginForm">
+        <input type="email" id="emailInput" placeholder="이메일" name="email" required><br>
+        <input type="password" id="passwordInput" name="password" placeholder="비밀번호" required><br>
+        <input type="button" class="login" value="로그인">
+        <a href="/project/100프젝/html/signup.html">회원가입</a>
       </form>
     </div>
 
