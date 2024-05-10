@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/css/mypage.css" />
+    <title>마이페이지</title>
+  </head>
+  <body>
+    <div class="main">
+      <div class="mainleft">
+        <a href="/templates/main.html"
+          ><img class="imgmain" src="/static/images/logo.png"
+        /></a>
+      </div>
+
+      <div class="mainright">
+        <a href="/templates/mypage.html"
+          ><img class="mainiconimg" src="/static/images/mypageicon.png"
+        /></a>
+      </div>
+    </div>
+
+    <h3>사용자 정보</h3>
+
+    <div class="itembox1">
+      <div class="initembox1">
+        <ul class="pro">
+          <p id="name">이름: 홍길동</p>
+          <p id="email">아이디: photo0000@gmail.com</p>
+          <div style="text-align: center">
+            <button class="custom-btn btn-15" id="changeNameButton">
+              이름 변경
+            </button>
+            <button class="custom-btn btn-16" id="changePasswordButton">
+              비밀번호 변경
+            </button>
+          </div>
+        </ul>
+      </div>
+    </div>
+
+    <h3>접근 기록</h3>
+
+    <div class="outitembox2">
+      <div class="itembox2">
+        <div class="initembox2">
+          <img src="/static/images/도둑.png" alt="img" />
+        </div>
+        <p class="text">
+          2024.05.12 <br />
+          10:42 <br />
+          암호틀림
+        </p>
+      </div>
+    </div>
+
+    <div class="div-logout">
+      <button type="button" class="logout">로그아웃</button>
+    </div>
+
+    <div id="nameModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <input
+          type="text"
+          id="newName"
+          placeholder="새로운 이름을 입력하세요"
+        />
+        <button id="confirmName">확인</button>
+      </div>
+    </div>
+
+    <div id="passwordModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <input type="password" id="oldPassword" placeholder="이전 비밀번호" />
+        <input type="password" id="newPassword" placeholder="새 비밀번호" />
+        <input
+          type="password"
+          id="confirmPassword"
+          placeholder="비밀번호 확인"
+        />
+        <button id="confirmPasswordChange">확인</button>
+      </div>
+    </div>
+
+    <script src="/static/js/mypage.js"></script>
+
+    <script>
+      // 로그아웃 버튼 요소를 가져옵니다.
+      const logoutButton = document.querySelector(".logout");
+
+      // 로그아웃 버튼에 클릭 이벤트를 추가합니다.
+      logoutButton.addEventListener("click", function () {
+        // 로그인 화면으로 이동합니다.
+        window.location.href = "login.html";
+      });
+    </script>
+  </body>
+</html>

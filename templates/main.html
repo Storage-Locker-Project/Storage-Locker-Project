@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/static/css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
+    <title>찰칵 홈화면</title>
+  </head>
+
+  <body>
+    <!-- Modal -->
+
+    <div class="main">
+      <div class="mainleft">
+        <a href="/templates/main.html"
+          ><img class="imgmain" src="/static/images/logo.png"
+        /></a>
+      </div>
+
+      <div class="mainright">
+        <a href="/templates/mypage.html"
+          ><img class="mainiconimg" src="/static/images/mypageicon.png"
+        /></a>
+      </div>
+    </div>
+
+    <div class="itemBox">
+      <div class="initembox1">
+        <div id="timeBox">
+          <p id="US">
+            현재 사용하시는<br />
+            사물함이 없습니다.
+          </p>
+        </div>
+        <button id="expand" onclick="openModal('locker1', 'expand')">연장하기</button>
+      </div>
+    </div>
+
+    <h1 class="ItemName">사물함 사용 현황</h1>
+
+    <div class="itembox2">
+      <div class="lockers">
+        <!-- Locker buttons go here -->
+        <button
+          class="locker"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          data-number="1"
+          id="locker1"
+        >
+          Locker 1
+        </button>
+        <button
+          class="locker"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          data-number="2"
+          id="locker2"
+        >
+          Locker 2
+        </button>
+        <button
+          class="unlocker"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          data-number="3"
+          id="locker3"
+        >
+          Locker 3
+        </button>
+        <button
+          class="unlocker"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          data-number="4"
+          id="locker4"
+        >
+          Locker 4
+        </button>
+        <button
+          class="unlocker"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          data-number="5"
+          id="locker5"
+        >
+          Locker 5
+        </button>
+        <button
+          class="unlocker"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          data-number="6"
+          id="locker6"
+        >
+          Locker 6
+        </button>
+        <button
+          class="unlocker"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          data-number="7"
+          id="locker7"
+        >
+          Locker 7
+        </button>
+        <button
+          class="unlocker"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          data-number="8"
+          id="locker8"
+        >
+          Locker 8
+        </button>
+        <button
+          class="unlocker"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          data-number="9"
+          id="locker9"
+        >
+          Locker 9
+        </button>
+        <!-- Add more locker buttons as per the previous examples -->
+      </div>
+    </div>
+
+    <!-- Time selection modal -->
+    <div id="timeModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 id="expandName">사용할 시간을 입력해주세요</h2>
+        <input type="text" placeholder="이름" />
+        <input type="password" placeholder="비밀번호" />
+
+        <input
+          type="number"
+          id="hours"
+          min="1"
+          placeholder="사용하실 시간을 입력하세요"
+        />
+        <button id="confirmTime">완료하기</button>
+        <button id="closeButton">취소하기</button>
+      </div>
+    </div>
+
+    <!-- <script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+			crossorigin="anonymous"
+		></script> -->
+
+    <script src="/static/js/main.js"></script>
+  </body>
+</html>
