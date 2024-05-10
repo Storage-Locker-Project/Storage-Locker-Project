@@ -12,10 +12,22 @@
     </div>
 
     <div class="login-form">
-      <form action="/login" method="post" id="loginForm">
-        <input type="email" id="emailInput" placeholder="이메일" name="email" required><br>
-        <input type="password" id="passwordInput" name="password" placeholder="비밀번호" required><br>
-        <input type="button" class="login" value="로그인">
+      <form action="/login" method="port" id="loginForm">
+        <input
+          type="email"
+          id="emailInput"
+          placeholder="이메일"
+          name="email"
+          required
+        /><br />
+        <input
+          type="password"
+          id="passwordInput"
+          name="password"
+          placeholder="비밀번호"
+          required
+        /><br />
+        <input type="button" class="login" value="로그인" />
         <a href="/project/100프젝/html/signup.html">회원가입</a>
       </form>
     </div>
@@ -27,7 +39,7 @@
       // 로그아웃 버튼에 클릭 이벤트를 추가합니다.
       loginButton.addEventListener("click", function () {
         // 로그인 화면으로 이동합니다.
-        window.location.href = "main.html";
+        window.location.href = "/project/100프젝/html/main.html";
       });
     </script>
   </body>
