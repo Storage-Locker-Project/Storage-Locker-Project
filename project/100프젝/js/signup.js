@@ -27,6 +27,6 @@ function checkForm(event) {
     // 모든 입력 필드가 채워져 있고 비밀번호가 일치하는 경우
     // 여기에는 폼을 제출하는 추가 코드를 작성할 수 있습니다.
     // 예: 로그인 페이지로 이동
-    window.location.href = "index.html";
+    window.location.href = "/project/100프젝/html/index.html";
   }
 }
