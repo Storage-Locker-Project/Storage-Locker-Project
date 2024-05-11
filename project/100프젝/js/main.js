@@ -43,7 +43,7 @@ function openModal(lockerId, mode) {
 
   // 확인 버튼에 이벤트 리스너를 추가합니다.
   confirmBtn.onclick = function () {
-    const hours = parseFloat(timeInput.value);
+    const hours = parseInt(timeInput.value);
     if (!isNaN(hours) && hours > 0) {
       // currentLockerId 업데이트
       currentLockerId = lockerId;
