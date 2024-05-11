@@ -61,7 +61,7 @@ def login():
 
 # 회원가입 기능
 @app.route('/signup', methods=['POST'])
-def singup():
+def signup():
     print(">>> 3. singup")
     try:
         # 사용자가 입력한 회원가입 정보 가져오기
@@ -177,7 +177,7 @@ def mypage():
         storage_data = cursor.fetchall()
 
         connection.close()
-
+        # 유저 정보와 보관함 정보 전송
         return jsonify({'user_login': login_data, 'user_storage': storage_data})
 
     except Exception as e:
